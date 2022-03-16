@@ -12,6 +12,7 @@ namespace ConsoleApp1.models
             this._negro= new List<int>(){2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33 ,35};
             this._rojo=new List<int>(){1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34 , 36};
 		}
+        public int jugador { set; get; }
     
     public void apostarnumeroespecífico(int numero,int apuesta){
         int num=ruleta();
@@ -133,7 +134,91 @@ namespace ConsoleApp1.models
     }
 
 
-    
+    public void MostrarMenu(){
+        int select =0;
+        while (select==0)
+        {
+        Console.WriteLine("Menu");
+        Console.WriteLine("1.Apostar");
+        Console.WriteLine("2.Registros");
+       
+        Console.WriteLine("______________________________");
+        select =int.Parse(Console.ReadLine());
+        
+            
+        }
+        switch (select)
+        {
+                case 1: MostrarMenu1();
+                break;
+                case 2:MostrarMenu2();
+                break;
+                case 3:MostrarMenu3();
+                break;
+                case 4:MostrarMenu4();
+                break;
+                case 5: MostrarMenu5();
+
+                break;
+            
+        }
+
+    }
+    public bool esmultiplo(int numero){
+        
+        if (numero % 5 == 0) {
+        return false;
+        } else {
+        return true;
+    }
+    }
+    public void MostrarMenu1(){
+        Console.WriteLine("|Apostar|");
+        Console.WriteLine("1.Apostar a un numero especifico");
+        Console.WriteLine("2.Apostar a un color");
+        Console.WriteLine("3.Apostar par o impar");
+        int tipo =int.Parse(Console.ReadLine());
+        Console.WriteLine("Ingresa la cantidad a apostar(solo se permiten numeros multiplos de 5");
+        int cantidad =int.Parse(Console.ReadLine());
+        if(cantidad<_jugador.balance){
+            if (esmultiplo(cantidad))
+            {
+                switch (tipo)
+                {
+                    case 1:
+                         mostramenuapusetanumero(cantidad);
+
+                    break;
+                    
+                    default:
+                }
+            }
+        }
+        else
+        {
+          Console.WriteLine(" no tienes dinero suficiente, tu saldo es de"+_jugador.balance);   
+        }
+
+        Console.WriteLine("______________________________"); 
+        
+       
+        MostrarMenu();
+    }
+    public void mostramenuapusetanumero(int cantidad){
+        int validacion=37;
+        int numero=0;
+        while (validacion<0 || validacion>36)
+        {
+            Console.WriteLine("|Apuesta a un numero|");
+            Console.WriteLine("Ingresa el numero, recuerda que debe estar en unrango de 0-36");
+            numero =int.Parse(Console.ReadLine());
+            validacion=numero;
+            
+        }
+        apostarnumeroespecífico(numero,cantidad);
+        
+        MostrarMenu();
+    }
     }
     
     
