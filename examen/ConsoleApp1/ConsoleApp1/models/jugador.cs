@@ -8,11 +8,11 @@ namespace ConsoleApp1.models
         private int _cantidadNegros;
         private int _pares;
         private int _impares;
-        private List<int> _historial;
+        private List<int> _historial=new List<int>();
         public Jugador(int balance)
 		{
 			this._balance = balance;
-			this._historial= new List<int>();
+			
             this._cantidadNegros=0;
             this._cantidadRojos=0;
             this.pares=0;

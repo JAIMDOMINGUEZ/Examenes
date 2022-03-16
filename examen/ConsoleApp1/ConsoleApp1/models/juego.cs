@@ -216,13 +216,18 @@ namespace ConsoleApp1.models
         MostrarMenu();
     }
 
-    public void MostrarMenuregistros(){}
-     Console.WriteLine("giros"+_jugador.cantidadGiros); 
-     Console.WriteLine("numeros negros"+_jugador.cantidadNegros); 
-     Console.WriteLine("numeros rojos":_jugador.cantidadRojos); 
-     Console.WriteLine("pares"+_jugador.pares); 
-     Console.WriteLine("impares":_jugador.impares); 
-        
+    public void MostrarMenuregistros(){
+     Console.WriteLine("giros"); 
+     Console.WriteLine(_jugador.cantidadGiros);
+     Console.WriteLine("numeros negros"); 
+     Console.WriteLine(_jugador.cantidadNegros);
+     Console.WriteLine("numeros rojos");
+    Console.WriteLine(_jugador.cantidadRojos);
+     Console.WriteLine("pares"); 
+     Console.WriteLine(_jugador.pares);    
+     Console.WriteLine("impares");
+     Console.WriteLine(_jugador.impares); 
+    }
     }
     
     
