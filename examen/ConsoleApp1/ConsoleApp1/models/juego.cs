@@ -182,10 +182,13 @@ namespace ConsoleApp1.models
                 switch (tipo)
                 {
                     case 1:
-                         mostramenuapusetanumero(cantidad);
+                         mostramenuapuestanumero(cantidad);
 
                     break;
-                    
+                    case 2:
+                         MostrarMenuapostarcolor(cantidad);
+
+                    break;
                     
                 }
             }
@@ -200,7 +203,7 @@ namespace ConsoleApp1.models
        
         MostrarMenu();
     }
-    public void mostramenuapusetanumero(int cantidad){
+    public void mostramenuapuestanumero(int cantidad){
         int validacion=37;
         int numero=0;
         while (validacion<0 || validacion>36)
@@ -216,6 +219,23 @@ namespace ConsoleApp1.models
         MostrarMenu();
     }
 
+    public void MostrarMenuapostarcolor(int cantidad){
+        int validacion=37;
+        int tipo=0;
+        while (validacion!=1 || validacion!=2)
+        {
+            Console.WriteLine("|Apuesta a un color|");
+            Console.WriteLine("Seleccione un color 1:nego 2.rojo");
+            tipo =int.Parse(Console.ReadLine());
+            validacion=tipo;
+            
+        }
+        apostarRojoNegro(tipo,cantidad);
+        
+        MostrarMenu();
+
+        
+    }
     public void MostrarMenuregistros(){
      Console.WriteLine("giros"); 
      Console.WriteLine(_jugador.cantidadGiros);
@@ -227,6 +247,10 @@ namespace ConsoleApp1.models
      Console.WriteLine(_jugador.pares);    
      Console.WriteLine("impares");
      Console.WriteLine(_jugador.impares); 
+      Console.WriteLine("ganancias");
+     gananciaoperdidas();
+      Console.WriteLine("______________________________"); 
+        MostrarMenu();
     }
     }
     
