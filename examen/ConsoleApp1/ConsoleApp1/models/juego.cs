@@ -8,7 +8,7 @@ namespace ConsoleApp1.models
     public Juego()
 		{
 			
-            this._jugador= new Jugador(300);
+            this._jugador= new Jugador();
             this._negro= new List<int>(){2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33 ,35};
             this._rojo=new List<int>(){1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34 , 36};
 		}
@@ -172,7 +172,7 @@ namespace ConsoleApp1.models
         Console.WriteLine("2.Apostar a un color");
         Console.WriteLine("3.Apostar par o impar");
         int tipo =int.Parse(Console.ReadLine());
-        Console.WriteLine(_jugador.balance);
+        Console.WriteLine(_jugador.j);
         Console.WriteLine("Ingresa la cantidad a apostar(solo se permiten numeros multiplos de 5");
         int cantidad =int.Parse(Console.ReadLine());
 
@@ -187,6 +187,10 @@ namespace ConsoleApp1.models
                     break;
                     case 2:
                          MostrarMenuapostarcolor(cantidad);
+
+                    break;
+                    case 3:
+                         MostrarMenuapostarparimpar(cantidad);
 
                     break;
                     
@@ -220,22 +224,40 @@ namespace ConsoleApp1.models
     }
 
     public void MostrarMenuapostarcolor(int cantidad){
-        int validacion=37;
+        int validacion=0;
         int tipo=0;
         while (validacion!=1 || validacion!=2)
         {
             Console.WriteLine("|Apuesta a un color|");
-            Console.WriteLine("Seleccione un color 1:nego 2.rojo");
+            Console.WriteLine("Seleccione un color 1:negro 2.rojo");
             tipo =int.Parse(Console.ReadLine());
             validacion=tipo;
             
         }
         apostarRojoNegro(tipo,cantidad);
-        
+        Console.WriteLine("______________________________"); 
         MostrarMenu();
 
         
     }
+     public void MostrarMenuapostarparimpar(int cantidad){
+        int validacion=0;
+        int tipo=0;
+        while (validacion!=1 || validacion!=2)
+        {
+            Console.WriteLine("|Apuesta par o impar|");
+            Console.WriteLine("Seleccione un color 1:par 2.impar");
+            tipo =int.Parse(Console.ReadLine());
+            validacion=tipo;
+            
+        }
+        apostarParImpar(tipo,cantidad);
+        Console.WriteLine("______________________________"); 
+        MostrarMenu();
+
+
+
+     }
     public void MostrarMenuregistros(){
      Console.WriteLine("giros"); 
      Console.WriteLine(_jugador.cantidadGiros);
