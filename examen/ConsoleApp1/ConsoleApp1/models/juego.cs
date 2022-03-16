@@ -8,12 +8,13 @@ namespace ConsoleApp1.models
     public Juego()
 		{
 			
-            this._jugador= new Jugador();
+            this._jugador= new Jugador(300);
             this._negro= new List<int>(){2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33 ,35};
             this._rojo=new List<int>(){1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34 , 36};
 		}
         public int jugador { set; get; }
-    
+        
+        
     public void apostarnumeroespecífico(int numero,int apuesta){
         int num=ruleta();
          int ganancia=0;
@@ -26,7 +27,7 @@ namespace ConsoleApp1.models
         jugada.Add(numero);
         jugada.Add(apuesta);
         jugada.Add(ganancia);
-        _jugador.historial.add(jugada);
+        //_jugador.historial.Add(jugada);
 
     }
     public void apostarRojoNegro(int tipo,int apuesta){
@@ -67,7 +68,7 @@ namespace ConsoleApp1.models
         jugada.Add(numero);
         jugada.Add(apuesta);
         jugada.Add(ganancia);
-        _jugador.historial.add(jugada);
+        //_jugador.historial.Add(jugada);
     }
     public void apostarParImpar(int tipo,int apuesta){
         int ganancia=0;
@@ -111,7 +112,7 @@ namespace ConsoleApp1.models
         jugada.Add(numero);
         jugada.Add(apuesta);
         jugada.Add(ganancia);
-        _jugador.historial.add(jugada);
+        //_jugador.historial.Add(jugada);
     }
     public int ruleta(){
         Random myObject = new Random();
@@ -149,16 +150,9 @@ namespace ConsoleApp1.models
         }
         switch (select)
         {
-                case 1: MostrarMenu1();
+                case 1: MostrarMenuapostar();
                 break;
-                case 2:MostrarMenu2();
-                break;
-                case 3:MostrarMenu3();
-                break;
-                case 4:MostrarMenu4();
-                break;
-                case 5: MostrarMenu5();
-
+                case 2:MostrarMenuregistros();
                 break;
             
         }
@@ -172,15 +166,17 @@ namespace ConsoleApp1.models
         return true;
     }
     }
-    public void MostrarMenu1(){
+    public void MostrarMenuapostar(){
         Console.WriteLine("|Apostar|");
         Console.WriteLine("1.Apostar a un numero especifico");
         Console.WriteLine("2.Apostar a un color");
         Console.WriteLine("3.Apostar par o impar");
         int tipo =int.Parse(Console.ReadLine());
+        Console.WriteLine(_jugador.balance);
         Console.WriteLine("Ingresa la cantidad a apostar(solo se permiten numeros multiplos de 5");
         int cantidad =int.Parse(Console.ReadLine());
-        if(cantidad<_jugador.balance){
+
+        if(_jugador.balance>cantidad){
             if (esmultiplo(cantidad))
             {
                 switch (tipo)
@@ -190,7 +186,7 @@ namespace ConsoleApp1.models
 
                     break;
                     
-                    default:
+                    
                 }
             }
         }
@@ -219,6 +215,14 @@ namespace ConsoleApp1.models
         
         MostrarMenu();
     }
+
+    public void MostrarMenuregistros(){}
+     Console.WriteLine("giros"+_jugador.cantidadGiros); 
+     Console.WriteLine("numeros negros"+_jugador.cantidadNegros); 
+     Console.WriteLine("numeros rojos":_jugador.cantidadRojos); 
+     Console.WriteLine("pares"+_jugador.pares); 
+     Console.WriteLine("impares":_jugador.impares); 
+        
     }
     
     

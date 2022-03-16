@@ -9,9 +9,9 @@ namespace ConsoleApp1.models
         private int _pares;
         private int _impares;
         private List<int> _historial;
-        public Jugador()
+        public Jugador(int balance)
 		{
-			this._balance = 300;
+			this._balance = balance;
 			this._historial= new List<int>();
             this._cantidadNegros=0;
             this._cantidadRojos=0;
@@ -26,6 +26,6 @@ namespace ConsoleApp1.models
 
         public int pares { set; get; }
         public int impares { set; get; }
-         public List historial { set; get; }
+         public List<int> historial { set; get; }
     }
 }
