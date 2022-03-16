@@ -9,6 +9,7 @@ namespace ConsoleApp1.models
 		{
 			
             this._jugador= new Jugador();
+            this._jugador.balance = 300;
             this._negro= new List<int>(){2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33 ,35};
             this._rojo=new List<int>(){1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34 , 36};
 		}
@@ -172,7 +173,7 @@ namespace ConsoleApp1.models
         Console.WriteLine("2.Apostar a un color");
         Console.WriteLine("3.Apostar par o impar");
         int tipo =int.Parse(Console.ReadLine());
-        Console.WriteLine(_jugador.j);
+        Console.WriteLine(_jugador.balance);
         Console.WriteLine("Ingresa la cantidad a apostar(solo se permiten numeros multiplos de 5");
         int cantidad =int.Parse(Console.ReadLine());
 
