@@ -12,7 +12,7 @@ namespace ConsoleApp1.models
         public Jugador()
 		{
 			this._balance = 300;
-			this._historial= new List<int>;
+			this._historial= new List<int>();
 		}
         public int balance { set; get; }
 		public int cantidadGiros { set; get; }

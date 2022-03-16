@@ -1,13 +1,21 @@
 namespace ConsoleApp1.models
 {
-    public class juego
+    public class Juego
     {
         private List<int> _negro;
         private List<int> _rojo;
-
+        private Jugador _jugador; 
+    public Juego()
+		{
+			
+            this._jugador= new Jugador();
+		}
     
-    public void apostarnumeroespecífico(int numero){
-
+    public void apostarnumeroespecífico(int numero,int apuesta){
+        int num=ruleta();
+        if(num==numero){
+            _jugador.balance=_jugador.balance+(apuesta*10);
+        }
     }
     public void apostarRojoNegro(int numero){
 
