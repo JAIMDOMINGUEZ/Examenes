@@ -15,34 +15,121 @@ namespace ConsoleApp1.models
     
     public void apostarnumeroespecífico(int numero,int apuesta){
         int num=ruleta();
+         int ganancia=0;
         if(num==numero){
             _jugador.balance=_jugador.balance+(apuesta*10);
+            ganancia=apuesta*10;
         }
+        _jugador.cantidadGiros=_jugador.cantidadGiros+1;
+         List<int> jugada = new List<int>();
+        jugada.Add(numero);
+        jugada.Add(apuesta);
+        jugada.Add(ganancia);
+        _jugador.historial.add(jugada);
+
     }
-    public void apostarRojoNegro(int tipo){
+    public void apostarRojoNegro(int tipo,int apuesta){
         int numero = ruleta();
+        int ganancia=0;
+        switch (tipo)
+        {   
+            case 1://negro
+                    if (_negro.Contains(numero))
+                    {
+                        _jugador.balance=_jugador.balance+(apuesta*5);
+                        _jugador.cantidadNegros=_jugador.cantidadNegros+1;
+                        ganancia=apuesta*5;
+                    }
+                    else
+                    {
+                        _jugador.balance=_jugador.balance-apuesta;
+                        ganancia=0;
+                    }
+                break;
+            case 2: //rojo
+                if (_rojo.Contains(numero))
+                    {
+                        _jugador.balance=_jugador.balance+(apuesta*5);
+                        _jugador.cantidadRojos=_jugador.cantidadRojos+1;
+                        ganancia=apuesta*5;
+                    }
+                    else
+                    {
+                        _jugador.balance=_jugador.balance-apuesta;
+                        ganancia=0;
+                    }
+                break;
+
+        }
+        _jugador.cantidadGiros=_jugador.cantidadGiros+1;
+         List<int> jugada = new List<int>();
+        jugada.Add(numero);
+        jugada.Add(apuesta);
+        jugada.Add(ganancia);
+        _jugador.historial.add(jugada);
+    }
+    public void apostarParImpar(int tipo,int apuesta){
+        int ganancia=0;
+        int numero=ruleta();
+  
         switch (tipo)
         {   
             case 1:
-                foreach (var item in _negro)
-                {
-                    _negro.Contains(numero);
-                    if (true)
-                    {
-                        
-                    }
-                }
+                        //si espar
+                        if((numero % 2) == 0)
+                         {
+                            _jugador.balance=_jugador.balance+(apuesta*2);
+                            ganancia=apuesta*2;
+                            _jugador.pares=_jugador.pares+1;
+                         }
+                        else
+                         {
+                             
+                            _jugador.balance=_jugador.balance-apuesta;
+                            _jugador.impares=_jugador.impares+1;
+                            ganancia=0;
+                         }
+                         break;
+            case 2: //si es impar
+                         if((numero % 2) == 0)
+                        {
+                            _jugador.balance=_jugador.balance-apuesta;
+                            _jugador.pares=_jugador.pares+1;
+                             ganancia=0;
+                        }
+                        else
+                         {  
+                            _jugador.impares=_jugador.impares+1;
+                            _jugador.balance=_jugador.balance+(apuesta*2);
+                             ganancia=apuesta*2;
+                         }
                 break;
-            case 2: 
-                break;
-            
-          
         }
+        _jugador.cantidadGiros=_jugador.cantidadGiros+1;
+        List<int> jugada = new List<int>();
+        jugada.Add(numero);
+        jugada.Add(apuesta);
+        jugada.Add(ganancia);
+        _jugador.historial.add(jugada);
     }
     public int ruleta(){
         Random myObject = new Random();
         int aleatorio= myObject.Next(0, 36);
         return aleatorio;
+    }
+    public void gananciaoperdidas(){
+        if(_jugador.balance>300){
+             Console.WriteLine(_jugador.balance-300);
+        }
+        if (_jugador.balance<300)
+        {
+            Console.WriteLine(300-_jugador.balance);
+        }
+        if (_jugador.balance==300)
+        {
+             Console.WriteLine(0);
+        }
+        
     }
 
 

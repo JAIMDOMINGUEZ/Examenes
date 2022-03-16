@@ -13,6 +13,11 @@ namespace ConsoleApp1.models
 		{
 			this._balance = 300;
 			this._historial= new List<int>();
+            this._cantidadNegros=0;
+            this._cantidadRojos=0;
+            this.pares=0;
+            this._impares=0;
+
 		}
         public int balance { set; get; }
 		public int cantidadGiros { set; get; }
@@ -21,6 +26,6 @@ namespace ConsoleApp1.models
 
         public int pares { set; get; }
         public int impares { set; get; }
-         public int historial { set; get; }
+         public List historial { set; get; }
     }
 }
