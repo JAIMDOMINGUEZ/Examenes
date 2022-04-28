@@ -73,8 +73,9 @@ namespace ConsoleApp1.models
     }
     public void apostarParImpar(int tipo,int apuesta){
         int ganancia=0;
+         
         int numero=ruleta();
-  
+        
         switch (tipo)
         {   
             case 1:
@@ -118,6 +119,7 @@ namespace ConsoleApp1.models
     public int ruleta(){
         Random myObject = new Random();
         int aleatorio= myObject.Next(0, 36);
+       
         return aleatorio;
     }
     public void gananciaoperdidas(){

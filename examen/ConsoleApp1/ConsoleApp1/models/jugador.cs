@@ -17,6 +17,7 @@ namespace ConsoleApp1.models
             this._cantidadRojos=0;
             this.pares=0;
             this._impares=0;
+            this._cantidadGiros=0;
 
 		}
         public int balance { set; get; }
