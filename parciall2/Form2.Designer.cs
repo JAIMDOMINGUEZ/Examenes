@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.monedas_clb = new System.Windows.Forms.CheckedListBox();
             this.cancelar_btn = new System.Windows.Forms.Button();
             this.aceptar_btn = new System.Windows.Forms.Button();
-            this.monedas_clb = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +42,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(341, 265);
             this.panel1.TabIndex = 0;
+            // 
+            // monedas_clb
+            // 
+            this.monedas_clb.FormattingEnabled = true;
+            this.monedas_clb.Location = new System.Drawing.Point(50, 41);
+            this.monedas_clb.Name = "monedas_clb";
+            this.monedas_clb.Size = new System.Drawing.Size(255, 142);
+            this.monedas_clb.TabIndex = 0;
             // 
             // cancelar_btn
             // 
@@ -61,14 +69,7 @@
             this.aceptar_btn.TabIndex = 3;
             this.aceptar_btn.Text = "Aceptar";
             this.aceptar_btn.UseVisualStyleBackColor = true;
-            // 
-            // monedas_clb
-            // 
-            this.monedas_clb.FormattingEnabled = true;
-            this.monedas_clb.Location = new System.Drawing.Point(50, 41);
-            this.monedas_clb.Name = "monedas_clb";
-            this.monedas_clb.Size = new System.Drawing.Size(255, 142);
-            this.monedas_clb.TabIndex = 0;
+            this.aceptar_btn.Click += new System.EventHandler(this.aceptar_btn_Click);
             // 
             // Form2
             // 

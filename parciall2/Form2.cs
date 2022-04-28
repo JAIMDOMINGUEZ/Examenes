@@ -16,6 +16,7 @@ namespace parciall2
         private float monto;
         private String monedaseleccionada;
         private List<string> monedas = new List<string>();
+        private List<string> conversion = new List<string>();
         public Form2()
         {
             InitializeComponent();
@@ -39,6 +40,25 @@ namespace parciall2
                 monedas_clb.Items.Add(mon);
                 }
             }
+        }
+        private void alerta(String mensaje)
+        {
+
+
+            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void aceptar_btn_Click(object sender, EventArgs e)
+        {
+            foreach(string mon in monedas_clb.CheckedItems)
+            {
+                conversion.Add(mon);
+               
+            }
+            Form1 formulario1 = new Form1();
+            formulario1.mostrarDivisas(conversion,monto,monedaseleccionada);
+            this.Close();
+           
         }
     }
 }
