@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace parciall2
 {
-    
+    //
     public partial class Form2 : Form
     {
         private String monedaseleccionada;
