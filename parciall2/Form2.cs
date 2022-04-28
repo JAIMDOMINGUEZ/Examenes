@@ -13,6 +13,7 @@ namespace parciall2
     //
     public partial class Form2 : Form
     {
+        private float monto;
         private String monedaseleccionada;
         private List<string> monedas = new List<string>();
         public Form2()
@@ -23,6 +24,7 @@ namespace parciall2
 
         public string Monedaseleccionada { get => monedaseleccionada; set => monedaseleccionada = value; }
         public List<string> Monedas { get => monedas; set => monedas = value; }
+        public float Monto { get => monto; set => monto = value; }
 
         private void cancelar_btn_Click(object sender, EventArgs e)
         {

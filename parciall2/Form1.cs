@@ -53,11 +53,47 @@ namespace parciall2
         {
             Form2 formulario2 = new Form2();
             string seleccionado = Moneda_comboBox.GetItemText(Moneda_comboBox.SelectedItem);
-            formulario2.Monedaseleccionada = seleccionado;
-            formulario2.Monedas = monedas;
-            formulario2.Show();
+            
+            if (seleccionado!="")
+            {
+                if (monto_textBox.Text != "")
+                {
+                    float monto = float.Parse(monto_textBox.Text);
+                    if (monto>0)
+                    {
+                        formulario2.Monedaseleccionada = seleccionado;
+                        formulario2.Monedas = monedas;
+                        formulario2.Monto = monto;
+                        formulario2.Show();
+                    }
+                    else
+                    {
+                        alerta("Ingrese un monto valido");
+                    }
+                   
+                }
+                else {
+                    alerta("Ingrese un monto valido");
+                }
+            }
+            else
+            {
+                alerta("Selecione un tipo de moneda");
+            }
+            
 
 
+
+        }
+        private void alerta(String mensaje)
+        {
+            
+
+            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void monto_textBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
