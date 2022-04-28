@@ -1,0 +1,12 @@
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\bin\Debug\parciall2.exe.config
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\bin\Debug\parciall2.exe
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\bin\Debug\parciall2.pdb
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.csproj.AssemblyReference.cache
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.csproj.SuggestedBindingRedirects.cache
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.Properties.Resources.resources
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.csproj.GenerateResource.cache
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.csproj.CoreCompileInputs.cache
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.exe
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.pdb
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.Form1.resources
+C:\Users\James Backster\Documents\Libros\workspace\3semestre\4to\.net\examen\parciall2\obj\Debug\parciall2.Form2.resources
