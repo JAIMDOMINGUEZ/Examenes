@@ -87,6 +87,7 @@
             // 
             // Conversiones_grp
             // 
+            this.Conversiones_grp.AccessibleName = "conversiones_grp";
             this.Conversiones_grp.Location = new System.Drawing.Point(24, 169);
             this.Conversiones_grp.Name = "Conversiones_grp";
             this.Conversiones_grp.Size = new System.Drawing.Size(426, 240);
@@ -121,7 +122,7 @@
         private System.Windows.Forms.ComboBox Moneda_comboBox;
         private System.Windows.Forms.TextBox monto_textBox;
         private System.Windows.Forms.Button calcular_btn;
-        private System.Windows.Forms.GroupBox Conversiones_grp;
+        public System.Windows.Forms.GroupBox Conversiones_grp;
     }
 }
 

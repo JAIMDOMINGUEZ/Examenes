@@ -19,7 +19,9 @@ namespace parciall2
         "EUR-Euro",
         "JPY-Yen Japones"
         };
-        private object conversiones;
+
+        public string d;
+        
 
         public Form1()
         {
@@ -48,7 +50,7 @@ namespace parciall2
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
+            
         }
 
         private void calcular_btn_Click(object sender, EventArgs e)
@@ -58,7 +60,8 @@ namespace parciall2
 
             if (seleccionado != "")
             {
-                if (monto_textBox.Text != "")
+                String m = monto_textBox.Text;
+                if (m != "" && m.All(char.IsDigit))
                 {
                     float monto = float.Parse(monto_textBox.Text);
                     if (monto > 0)
@@ -66,9 +69,151 @@ namespace parciall2
                         formulario2.Monedaseleccionada = seleccionado;
                         formulario2.Monedas = monedas;
                         formulario2.Monto = monto;
+                        formulario2.ShowDialog();
+                        Conversiones_grp.Controls.Clear();
+                        foreach (string item in formulario2.Monedas)
+                        {
+                            Console.WriteLine(item);
+                        }
+
+                        List<String> cambio = new List<String>();
+                        switch (formulario2.Monedaseleccionada)
+                        {
+                            case "USD-Dolar estadounidense":
+                                foreach (String divisa in formulario2.Conversion)
+                                {
+                                    switch (divisa)
+                                    {
+                                        case "USD-Dolar estadounidense":
+                                            break;
+                                        case "MXN-Peso Mexicano":
+                                            cambio.Add("$" + (formulario2.Monto * 21.23).ToString());
+                                            break;
+                                        case "CAD-Dolar Canadiense":
+                                            cambio.Add("$" + (formulario2.Monto * 1.28).ToString());
+                                            break;
+                                        case "EUR-Euro":
+                                            cambio.Add("€" + (formulario2.Monto * 0.89).ToString());
+                                            break;
+                                        case "JPY-Yen Japones":
+                                            cambio.Add("¥" + (formulario2.Monto * 113.05).ToString());
+                                            break;
+                                    }
+
+                                }
+                                break;
+                            case "MXN-Peso Mexicano":
+                                foreach (String divisa in formulario2.Conversion)
+                                {
+                                    switch (divisa)
+                                    {
+                                        case "USD-Dolar estadounidense":
+                                            cambio.Add("$" + (formulario2.Monto * 0.05).ToString());
+                                            break;
+
+                                        case "CAD-Dolar Canadiense":
+                                            cambio.Add("$" + (formulario2.Monto * 0.06).ToString());
+                                            break;
+                                        case "EUR-Euro":
+                                            cambio.Add("€" + (formulario2.Monto * 0.04).ToString());
+                                            break;
+                                        case "JPY-Yen Japones":
+                                            cambio.Add("¥" + (formulario2.Monto * 5.32).ToString());
+                                            break;
+                                    }
+                                }
+                                break;
+                            case "CAD-Dolar Canadiense":
+                                foreach (String divisa in formulario2.Conversion)
+                                {
+                                    switch (divisa)
+                                    {
+                                        case "USD-Dolar estadounidense":
+                                            cambio.Add("$" + (formulario2.Monto * 0.78).ToString());
+                                            break;
+                                        case "MXN-Peso Mexicano":
+                                            cambio.Add("$" + (formulario2.Monto * 16.55).ToString());
+                                            break;
+
+                                        case "EUR-Euro":
+                                            cambio.Add("€" + (formulario2.Monto * 0.69).ToString());
+                                            break;
+                                        case "JPY-Yen Japones":
+                                            cambio.Add("¥" + (formulario2.Monto * 88.12).ToString());
+                                            break;
+                                    }
+
+                                }
+                                break;
+                            case "EUR-Euro":
+                                foreach (String divisa in formulario2.Conversion)
+                                {
+                                    switch (divisa)
+                                    {
+                                        case "USD-Dolar estadounidense":
+                                            cambio.Add("$" + (formulario2.Monto * 1.13).ToString());
+                                            break;
+                                        case "MXN-Peso Mexicano":
+                                            cambio.Add("$" + (formulario2.Monto * 23.96).ToString());
+                                            break;
+                                        case "CAD-Dolar Canadiense":
+                                            cambio.Add("$" + (formulario2.Monto * 1.45).ToString());
+                                            break;
+                                        case "JPY-Yen Japones":
+                                            cambio.Add("¥" + (formulario2.Monto * 127.56).ToString());
+                                            break;
+                                    }
+
+                                }
+                                break;
+                            case "JPY-Yen Japones":
+                                foreach (String divisa in formulario2.Conversion)
+                                {
+                                    switch (divisa)
+                                    {
+                                        case "USD-Dolar estadounidense":
+                                            cambio.Add("$" + (formulario2.Monto * 0.0088).ToString());
+                                            break;
+                                        case "MXN-Peso Mexicano":
+                                            cambio.Add("$" + (formulario2.Monto * 0.1878).ToString());
+                                            break;
+                                        case "CAD-Dolar Canadiense":
+                                            cambio.Add("$" + (formulario2.Monto * 0.0113).ToString());
+                                            break;
+                                        case "EUR-Euro":
+                                            cambio.Add("€" + (formulario2.Monto * 0.0078).ToString());
+                                            break;
+
+                                    }
+
+                                }
+                                break;
+
+                        }
+                        Console.WriteLine("...............");
+                        Console.WriteLine(formulario2.Monedaseleccionada);
+                        int x1 = 10;
+                        int x2 = 150;
+                        int y = 30;
+                        for (int i = 0; i < cambio.Count; i++)
+                        {
+                            Console.WriteLine(formulario2.Conversion[i] + "  " + cambio[i]);
+                            Label etiqueta = new Label();
+                            TextBox caja = new TextBox();
+                            etiqueta.Text = formulario2.Conversion[i].ToString();
+                            caja.Text = cambio[i].ToString();
+                            caja.Size = new Size(120, 30);
+                            etiqueta.Size = new Size(140, 30);
+                            Conversiones_grp.Controls.Add(etiqueta);
+                            Conversiones_grp.Controls.Add(caja);
+                            etiqueta.Location = new Point(x1, y);
+                            caja.Location = new Point(x2, y);
+
+                            y = y + 30;
+                        }
 
 
-                        formulario2.Show();
+
                     }
                     else
                     {
@@ -89,9 +234,10 @@ namespace parciall2
 
 
         }
+        /*
         public void mostrarDivisas(List<string> divisas, float montoo, String monedaseleccionada)
         {
-
+           
             List<String> cambio = new List<String>();
             switch (monedaseleccionada)
             {
@@ -224,19 +370,16 @@ namespace parciall2
                 Conversiones_grp.Controls.Add(caja);
                 etiqueta.Location = new Point(x1, y);
                 caja.Location = new Point(x2, y);
-
+            
                 y = y + 30;
             }
-            
-
-
-
-
+           
 
 
         }
-        
-            private void alerta(String mensaje)
+        */
+         
+        private void alerta(String mensaje)
         {
             
             MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -23,9 +23,12 @@ namespace parciall2
             
         }
 
-        public string Monedaseleccionada { get => monedaseleccionada; set => monedaseleccionada = value; }
+       
         public List<string> Monedas { get => monedas; set => monedas = value; }
         public float Monto { get => monto; set => monto = value; }
+        public string Monedaseleccionada { get => this.monedaseleccionada; set => this.monedaseleccionada = value; }
+        public List<string> Conversion { get => conversion; set => conversion = value; }
+        public float Monto1 { get => monto; set => monto = value; }
 
         private void cancelar_btn_Click(object sender, EventArgs e)
         {
@@ -56,7 +59,10 @@ namespace parciall2
                
             }
             Form1 formulario1 = new Form1();
-            formulario1.mostrarDivisas(conversion,monto,monedaseleccionada);
+           
+            
+            
+            
             this.Close();
            
         }
