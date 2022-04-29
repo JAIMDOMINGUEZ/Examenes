@@ -19,6 +19,8 @@ namespace parciall2
         "EUR-Euro",
         "JPY-Yen Japones"
         };
+        private object conversiones;
+
         public Form1()
         {
             InitializeComponent();
@@ -53,25 +55,26 @@ namespace parciall2
         {
             Form2 formulario2 = new Form2();
             string seleccionado = Moneda_comboBox.GetItemText(Moneda_comboBox.SelectedItem);
-            
-            if (seleccionado!="")
+
+            if (seleccionado != "")
             {
                 if (monto_textBox.Text != "")
                 {
                     float monto = float.Parse(monto_textBox.Text);
-                    if (monto>0)
+                    if (monto > 0)
                     {
                         formulario2.Monedaseleccionada = seleccionado;
                         formulario2.Monedas = monedas;
                         formulario2.Monto = monto;
-                        
+
+
                         formulario2.Show();
                     }
                     else
                     {
                         alerta("Ingrese un monto valido ");
                     }
-                   
+
                 }
                 else {
                     alerta("Ingrese un monto valido ");
@@ -81,14 +84,15 @@ namespace parciall2
             {
                 alerta("Selecione un tipo de moneda");
             }
-            
+
 
 
 
         }
-        public void mostrarDivisas(List<string> divisas, float montoo,String monedaseleccionada)
+        public void mostrarDivisas(List<string> divisas, float montoo, String monedaseleccionada)
         {
-            List<float> cambio=new List<float>();
+
+            List<String> cambio = new List<String>();
             switch (monedaseleccionada)
             {
                 case "USD-Dolar estadounidense":
@@ -99,19 +103,19 @@ namespace parciall2
                             case "USD-Dolar estadounidense":
                                 break;
                             case "MXN-Peso Mexicano":
-                                cambio.Add((float)(montoo * 21.23));
+                                cambio.Add("$"+(montoo * 21.23).ToString());
                                 break;
                             case "CAD-Dolar Canadiense":
-                                cambio.Add((float)(montoo * 1.28));
+                                cambio.Add("$" + (montoo * 1.28).ToString());
                                 break;
                             case "EUR-Euro":
-                                cambio.Add((float)(montoo * 0.89));
+                                cambio.Add("€"+(montoo * 0.89).ToString());
                                 break;
                             case "JPY-Yen Japones":
-                                cambio.Add((float)(montoo * 113.05));
+                                cambio.Add("¥"+(montoo * 113.05).ToString());
                                 break;
                         }
-                        
+
                     }
                     break;
                 case "MXN-Peso Mexicano":
@@ -120,19 +124,19 @@ namespace parciall2
                         switch (divisa)
                         {
                             case "USD-Dolar estadounidense":
-                                cambio.Add((float)(montoo * 0.05));
+                                cambio.Add("$"+(montoo * 0.05).ToString());
                                 break;
-                            
+
                             case "CAD-Dolar Canadiense":
-                                cambio.Add((float)(montoo * 0.06));
+                                cambio.Add("$"+(montoo * 0.06).ToString());
                                 break;
                             case "EUR-Euro":
-                                cambio.Add((float)(montoo * 0.04));
+                                cambio.Add("€"+(montoo * 0.04).ToString());
                                 break;
                             case "JPY-Yen Japones":
-                                cambio.Add((float)(montoo * 5.32));
+                                cambio.Add("¥"+(montoo * 5.32).ToString());
                                 break;
-                        }  
+                        }
                     }
                     break;
                 case "CAD-Dolar Canadiense":
@@ -141,20 +145,20 @@ namespace parciall2
                         switch (divisa)
                         {
                             case "USD-Dolar estadounidense":
-                                cambio.Add((float)(montoo * 0.78));
+                                cambio.Add("$"+(montoo * 0.78).ToString());
                                 break;
                             case "MXN-Peso Mexicano":
-                                cambio.Add((float)(montoo * 16.55));
+                                cambio.Add("$"+(montoo * 16.55).ToString());
                                 break;
-                           
+
                             case "EUR-Euro":
-                                cambio.Add((float)(montoo * 0.69));
+                                cambio.Add("€"+(montoo * 0.69).ToString());
                                 break;
                             case "JPY-Yen Japones":
-                                cambio.Add((float)(montoo * 88.12));
+                                cambio.Add("¥"+(montoo * 88.12).ToString());
                                 break;
                         }
-                        
+
                     }
                     break;
                 case "EUR-Euro":
@@ -163,19 +167,19 @@ namespace parciall2
                         switch (divisa)
                         {
                             case "USD-Dolar estadounidense":
-                                cambio.Add((float)(montoo * 1.13));
+                                cambio.Add("$"+(montoo * 1.13).ToString());
                                 break;
                             case "MXN-Peso Mexicano":
-                                cambio.Add((float)(montoo * 23.96));
+                                cambio.Add("$"+(montoo * 23.96).ToString());
                                 break;
                             case "CAD-Dolar Canadiense":
-                                cambio.Add((float)(montoo * 1.45));
+                                cambio.Add("$"+(montoo * 1.45).ToString());
                                 break;
                             case "JPY-Yen Japones":
-                                cambio.Add((float)(montoo * 127.56));
+                                cambio.Add("¥"+(montoo * 127.56).ToString());
                                 break;
                         }
-                        
+
                     }
                     break;
                 case "JPY-Yen Japones":
@@ -184,55 +188,55 @@ namespace parciall2
                         switch (divisa)
                         {
                             case "USD-Dolar estadounidense":
-                                cambio.Add((float)(montoo * 0.0088));
+                                cambio.Add("$"+(montoo * 0.0088).ToString());
                                 break;
                             case "MXN-Peso Mexicano":
-                                cambio.Add((float)(montoo * 0.1878));
+                                cambio.Add("$"+(montoo * 0.1878).ToString());
                                 break;
                             case "CAD-Dolar Canadiense":
-                                cambio.Add((float)(montoo * 0.0113));
+                                cambio.Add("$"+(montoo * 0.0113).ToString());
                                 break;
                             case "EUR-Euro":
-                                cambio.Add((float)(montoo * 0.0078));
+                                cambio.Add("€"+(montoo * 0.0078).ToString());
                                 break;
-                         
+
                         }
-                        
+
                     }
                     break;
 
             }
             Console.WriteLine("...............");
             Console.WriteLine(monedaseleccionada);
+            int x1 = 10;
+            int x2 = 150;
+            int y = 30;
             for (int i = 0; i < cambio.Count; i++)
             {
-                Console.WriteLine(divisas[i]+"  "+cambio[i]);
-                /*
+                Console.WriteLine(divisas[i] + "  " + cambio[i]);
                 Label etiqueta = new Label();
                 TextBox caja = new TextBox();
                 etiqueta.Text = divisas[i].ToString();
-                
                 caja.Text = cambio[i].ToString();
-                caja.Location = new Point(10, 50);
-                etiqueta.Location = new Point(10, 50);
-                conversiones_grp.Controls.Add(etiqueta);
-                conversiones_grp.Controls.Add(caja);
-                */
+                caja.Size = new Size(120, 30);
+                etiqueta.Size = new Size(50, 30);
+                Conversiones_grp.Controls.Add(etiqueta);
+                Conversiones_grp.Controls.Add(caja);
+                etiqueta.Location = new Point(x1, y);
+                caja.Location = new Point(x2, y);
+
+                y = y + 30;
             }
-            Label etiqueta = new Label();
-            TextBox caja = new TextBox();
-            etiqueta.Text = "divisa";
-            caja.Text = "cantidad";
-            caja.Size = new Size(30, 30);
-            etiqueta.Size = new Size(30, 30);
-            caja.Location = new Point(10, 0);
-            etiqueta.Location = new Point(10, 40);
-            this.Controls.Add(etiqueta);
-            this.Controls.Add(caja);
+            
+
+
+
+
 
 
         }
-        private void alerta(String mensaje)
+        
+            private void alerta(String mensaje)
         {
             
             MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);

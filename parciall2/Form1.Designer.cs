@@ -32,8 +32,8 @@
             this.monto_lbl = new System.Windows.Forms.Label();
             this.Moneda_comboBox = new System.Windows.Forms.ComboBox();
             this.monto_textBox = new System.Windows.Forms.TextBox();
-            this.conversiones_grp = new System.Windows.Forms.GroupBox();
             this.calcular_btn = new System.Windows.Forms.Button();
+            this.Conversiones_grp = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // moneda_lbl
@@ -73,16 +73,6 @@
             this.monto_textBox.TabIndex = 3;
             this.monto_textBox.TextChanged += new System.EventHandler(this.monto_textBox_TextChanged);
             // 
-            // conversiones_grp
-            // 
-            this.conversiones_grp.Location = new System.Drawing.Point(24, 147);
-            this.conversiones_grp.Name = "conversiones_grp";
-            this.conversiones_grp.Size = new System.Drawing.Size(430, 240);
-            this.conversiones_grp.TabIndex = 4;
-            this.conversiones_grp.TabStop = false;
-            this.conversiones_grp.Text = "Conversiones";
-            this.conversiones_grp.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
             // calcular_btn
             // 
             this.calcular_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -95,14 +85,23 @@
             this.calcular_btn.UseVisualStyleBackColor = false;
             this.calcular_btn.Click += new System.EventHandler(this.calcular_btn_Click);
             // 
+            // Conversiones_grp
+            // 
+            this.Conversiones_grp.Location = new System.Drawing.Point(24, 169);
+            this.Conversiones_grp.Name = "Conversiones_grp";
+            this.Conversiones_grp.Size = new System.Drawing.Size(426, 240);
+            this.Conversiones_grp.TabIndex = 6;
+            this.Conversiones_grp.TabStop = false;
+            this.Conversiones_grp.Text = "Conversiones";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(478, 445);
+            this.Controls.Add(this.Conversiones_grp);
             this.Controls.Add(this.calcular_btn);
-            this.Controls.Add(this.conversiones_grp);
             this.Controls.Add(this.monto_textBox);
             this.Controls.Add(this.Moneda_comboBox);
             this.Controls.Add(this.monto_lbl);
@@ -121,8 +120,8 @@
         private System.Windows.Forms.Label monto_lbl;
         private System.Windows.Forms.ComboBox Moneda_comboBox;
         private System.Windows.Forms.TextBox monto_textBox;
-        private System.Windows.Forms.GroupBox conversiones_grp;
         private System.Windows.Forms.Button calcular_btn;
+        private System.Windows.Forms.GroupBox Conversiones_grp;
     }
 }
 
