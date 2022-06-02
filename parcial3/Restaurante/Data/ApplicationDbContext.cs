@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
+using Restaurante.Models;
 namespace Restaurante.Data;
 
 public class ApplicationDbContext : IdentityDbContext
@@ -9,4 +9,6 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
+    public DbSet<Categoria> Categorias {get;set;}
+    public DbSet<Producto> Productos {get;set;}
 }

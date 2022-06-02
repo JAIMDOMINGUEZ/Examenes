@@ -19,12 +19,52 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Categoria/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Categoria/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Categoria/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Categoria/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Categoria/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Producto/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Producto/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Producto/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Producto/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Producto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/James Backster/Documents/Libros/workspace/3semestre/4to/.net/Examen1/Examenes/parcial3/Restaurante/Views/Shared/Error.cshtml]
