@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Restaurante.Data;
 using Restaurante.Models;
 
 namespace Restaurante.Controllers;
@@ -7,15 +9,18 @@ namespace Restaurante.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+     private readonly ApplicationDbContext _context;
+    public HomeController(ILogger<HomeController> logger,ApplicationDbContext context )
     {
         _logger = logger;
+        _context=context;
+
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+            var applicationDbContext = _context.Productos.Include(p => p.Categoria);
+            return View(await applicationDbContext.ToListAsync());
     }
 
     public IActionResult Privacy()

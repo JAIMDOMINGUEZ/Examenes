@@ -13,10 +13,12 @@ namespace Restaurante.Controllers
     public class ProductoController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnviroment;
 
-        public ProductoController(ApplicationDbContext context)
+        public ProductoController(ApplicationDbContext context,IWebHostEnvironment hostEnviroment)
         {
             _context = context;
+            _hostEnviroment = hostEnviroment;
         }
 
         // GET: Producto
@@ -57,14 +59,28 @@ namespace Restaurante.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,IdCategoria,Cantidad,Descipcion")] Producto producto)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,IdCategoria,Cantidad,Descipcion,UrlImagen")] Producto producto)
         {
-            /*if (ModelState.IsValid)
+            /*
+            if (ModelState.IsValid)
             {*/
+                string rutaPrincipal =_hostEnviroment.WebRootPath;
+                var archivos=HttpContext.Request.Form.Files;
+                if(archivos.Count()>0){
+                    string nombreArchivo = Guid.NewGuid().ToString();
+                    var subidas= Path.Combine(rutaPrincipal,@"imagenes\productos\");
+                    var extension=Path.GetExtension(archivos[0].FileName);
+                    using(var fileStream = new FileStream(Path.Combine(subidas,nombreArchivo+extension), FileMode.Create)){
+                            archivos[0].CopyTo(fileStream);
+
+                    }
+                    producto.UrlImagen=@"imagenes\productos\"+ nombreArchivo+extension;
+
+                //}
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            //}
+            }
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nombre", producto.IdCategoria);
             return View(producto);
         }
@@ -91,17 +107,39 @@ namespace Restaurante.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,IdCategoria,Cantidad,Descipcion")] Producto producto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,IdCategoria,Cantidad,Descipcion,,UrlImagen")] Producto producto)
         {
             if (id != producto.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            /*if (ModelState.IsValid){*/
                 try
                 {
+                    string rutaPrincipal =_hostEnviroment.WebRootPath;
+                    var archivos=HttpContext.Request.Form.Files;
+                if(archivos.Count()>0){
+                    Producto? productobd =await _context.Productos.FindAsync(id);
+                    if(productobd!=null && productobd.UrlImagen!=null){
+                        var rutaImagenActual =Path.Combine(rutaPrincipal,productobd.UrlImagen);
+                        if(System.IO.File.Exists(rutaImagenActual)){
+                            System.IO.File.Delete(rutaImagenActual);
+                        }
+                        _context.Entry(productobd).State=EntityState.Detached;
+
+
+                    }
+                    string nombreArchivo = Guid.NewGuid().ToString();
+                    var subidas= Path.Combine(rutaPrincipal,@"imagenes\productos\");
+                    var extension=Path.GetExtension(archivos[0].FileName);
+                    using(var fileStream = new FileStream(Path.Combine(subidas,nombreArchivo+extension), FileMode.Create)){
+                            archivos[0].CopyTo(fileStream);
+
+                    }
+                    producto.UrlImagen=@"imagenes\productos\"+ nombreArchivo+extension;
+                    _context.Entry(producto).State =EntityState.Modified;
+                }
                     _context.Update(producto);
                     await _context.SaveChangesAsync();
                 }
@@ -117,7 +155,7 @@ namespace Restaurante.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nombre", producto.IdCategoria);
             return View(producto);
         }

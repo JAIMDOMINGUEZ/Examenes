@@ -17,9 +17,9 @@ namespace Restaurante.Models
         //Cantidad en gramos o mililitros
         [Display(Name ="Cantidad")]
         public int Cantidad {get;set;}
-        public string Descipcion {get;set;}
-
-
+        public string? Descipcion {get;set;}
+         [Display(Name ="Imagen de platillo")]
+         public string? UrlImagen {get;set;}
 
     }
 

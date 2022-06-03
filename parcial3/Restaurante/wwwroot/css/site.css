@@ -18,6 +18,10 @@ body {
 }
 
 
+
+
+
+
 .btn:hover, .btn:focus {
   color: #fff;
   outline: 0;
@@ -46,6 +50,7 @@ body {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  
 
 
 
@@ -63,3 +68,22 @@ body {
 .boton-chidori:hover {
   background-position: 100px;
 }
+.titulo{
+color: black;
+text-transform: uppercase;
+}
+.titulo-divisor{
+height: 0.4rem;
+width: 5rem;
+margin: 1rem;
+background-color: red;
+border-radius: 0.25rem;
+}
+.Titulo-sld{
+  color: red;
+}
+.Titulo-sld2{
+  color: red;
+}
+
+
