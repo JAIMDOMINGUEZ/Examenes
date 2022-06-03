@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Restaurante.Models.Producto>
+@{
+    ViewData["Title"] = "Menu";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+             <h2 class="Titulo">Ultimos Productos</h2>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+             <h2 class="titulo-divisor"></h2>
+        </div>
+      <div class="row">
+        @if(Model.Count()>0){
+
+          @foreach (var producto in Model.OrderBy(o=>o.Id))
+          {
+            <div class="card" style="width: 18rem;">
+                <img src="/@producto.UrlImagen" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">@producto.Nombre</h5>
+                  <p class="card-text">@producto.Descipcion</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">@Html.DisplayNameFor(model => model.Cantidad):@producto.Cantidad</li>
+                  
+                  
+                </ul>
+                <div class="card-body">
+                <a asp-action="Producto" asp-route-id="@producto.Id">
+                 <button type="button" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-heading" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"></path>
+                <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"></path>
+                </svg> Detalles
+              </button>
+              </a>
+                </div>
+              </div>
+          }
+        }
+      </div>
+
+    </div>
+</div>
+
+
