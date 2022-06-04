@@ -85,5 +85,16 @@ border-radius: 0.25rem;
 .Titulo-sld2{
   color: red;
 }
+.titulo2{
+  color: black;
+  text-transform: uppercase;
+  }
+  .titulo2-divisor{
+  height: 0.4rem;
+  width: 5rem;
+  margin: 1rem;
+  background-color: red;
+  border-radius: 0.25rem;
+  }
 
 

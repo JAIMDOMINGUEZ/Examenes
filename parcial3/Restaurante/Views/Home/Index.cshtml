@@ -48,6 +48,7 @@
     
   </button>
 </div>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
@@ -89,6 +90,18 @@
 
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<div class="col-12 d-flex justify-content-center">
+<h2 class="titulo2">Menu</h2>
+</div>
+<br>
+<div class="progress">
+  <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<br>
 <div class="container">
      
       @foreach (var producto in Model.OrderBy(o=>o.Id)){
@@ -100,9 +113,16 @@
       HashSet<string> sinduplicados = new HashSet<string> ( duplicados );
       List<string> lista = sinduplicados.ToList();
       }
+      
       @foreach (string cat in lista){
-                
-                <p>@cat</p>
+               <table class="table table-hover">
+                <tbody>
+                  <tr class="table-dark">
+                    <th scope="row"> @cat</th>
+                  </tr>
+                </tbody>
+              </table>
+                            
                 foreach (var producto in Model.OrderBy(o=>o.Id))
                 {
                   string v=@producto.Categoria.Nombre.ToString();
